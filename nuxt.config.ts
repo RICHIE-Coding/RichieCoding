@@ -2,5 +2,16 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
-  modules: ["@nuxtjs/tailwindcss"]
+  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt"],
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui'
+  }
 })

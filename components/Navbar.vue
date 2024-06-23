@@ -1,51 +1,54 @@
-<template>
-  <div class="sm:flex sm:flex-col">
-    <div class="flex bg-green-950 py-3 justify-between items-center w-full">
-      <div class="flex items-center">
-        <Icon 
-          v-if="!menuOpen"
-          @click="toggleMenu"
-          icon="material-symbols:menu"
-          class="hidden sm:block hover:text-yellow-400 ml-3"
-          width="32"
-          height="32"
-        />
-        <Icon 
-          @click="toggleMenu"
-          v-else
-          icon="carbon:close-outline"
-          class="hidden sm:block hover:text-yellow-400 ml-3"
-          width="32"
-          height="32"
-        />
-      </div>
-      <div class="text-2xl flex-grow text-center">RICHIECODING</div>
-      <div class="sm:w-8"></div> 
-    </div>
-    <div
-      class="flex absolute bottom-0 bg-green-950 w-full justify-center text-xl gap-24 py-3 sm:static sm:flex-col sm:gap-3 sm:justify-center sm:items-center" :class="menuOpen ? '' : 'sm:hidden'"
-    >
-      <div>Home</div>
-      <div>Project</div>
-      <div>About me</div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ref } from "vue";
-import { Icon } from "@iconify/vue";
 
-const menuOpen= ref(false);
-
-const toggleMenu = () => {
-  menuOpen.value = !menuOpen.value;
-};
-
+import { Button } from '@/components/ui/button'
+import { Icon } from '@iconify/vue';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 </script>
 
-<style scoped>
-.custom-shadow {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-}
-</style>
+<template>
+  <div class="flex min-h-screen w-full flex-col">
+    <header class="bg-green-900 py-3 px-10 md:px-24">
+      <!-- Navigation for larger screens -->
+      <nav class="hidden md:flex md:justify-between md:gap-5 md:text-sm lg:gap-10">
+        <div class="text-xl">RICHIECODING</div>
+        <div class="flex gap-20">
+          <a href="#" class=""><div class="text-xl hover:border-yellow-400 pb-1 hover:border-b-4 inline">Home</div></a>
+            <a href="#" class=""><div class="text-xl hover:border-yellow-400 pb-1 hover:border-b-4 inline">Projects</div></a>
+            <a href="#" class=""><div class="text-xl hover:border-yellow-400 pb-1 hover:border-b-4 inline">About me</div></a>
+        </div>
+        <div></div>
+      </nav>
+
+      <!-- Mobile menu with centered title -->
+      <Sheet>
+        <div class="flex items-center justify-between w-full md:hidden">
+          <SheetTrigger as-child>
+            <Button size="icon" class="bg-transparent shrink-0">
+              <Icon icon="material-symbols:menu" class="hover:text-yellow-400" width="32" height="32"/>
+            </Button>
+          </SheetTrigger>
+          <div class="text-xl">RICHIECODING</div>
+          <div></div>
+        </div>
+        
+        <SheetContent side="top" class="bg-green-900">
+          <nav class="grid gap-4 text-center text-lg font-medium">
+            <a href="#" class="flex items-center gap-2 text-lg font-semibold">
+              <span class="sr-only">Acme Inc</span>
+            </a>
+            <a href="#" class=""><div class="hover:border-yellow-400 pb-1 hover:border-b-4 inline">Home</div></a>
+            <a href="#" class=""><div class="hover:border-yellow-400 pb-1 hover:border-b-4 inline">Projects</div></a>
+            <a href="#" class=""><div class="hover:border-yellow-400 pb-1 hover:border-b-4 inline">About me</div></a>
+          </nav>
+        </SheetContent>
+      </Sheet>
+
+      <!-- Right side of the header -->
+      <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+        <form class="ml-auto flex-1 sm:flex-initial">
+          <div class="relative"></div>
+        </form>
+      </div>
+    </header>
+  </div>
+</template>
