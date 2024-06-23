@@ -1,5 +1,5 @@
 <template>
-  <div>
-    index
+  <div class="">
+    projects
   </div>
 </template>

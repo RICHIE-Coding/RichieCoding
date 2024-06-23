@@ -1,5 +1,5 @@
 <template>
   <div>
-    index
+    aboutme
   </div>
 </template>
