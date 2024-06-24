@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import Skills from '../components/Skills.vue';
+
+</script>
+
 <template>
   <div>
-    index
+    <DisplayTechnology />
+    <Skills />
   </div>
 </template>

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/i18n","@nuxtjs/i18n"],
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -13,5 +13,9 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui'
+  },
+  i18n: {
+    vueI18n: './i18n/i18n.config.ts',
+    
   }
 })
