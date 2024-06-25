@@ -1,6 +1,6 @@
 <template>
-      <div class="px-32 text-6xl text-richiegreen" style="line-height: 100px">
-        Hi, I work as a
+      <div class="px-10 sm:px-32 text-6xl text-richiegreen" style="line-height: 100px">
+        {{ $t('skills') }}
         <span class="typed-text">{{ typeValue }}</span>
         <span class="blinking-cursor">|</span>
         <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>

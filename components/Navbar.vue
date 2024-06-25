@@ -3,7 +3,7 @@
     <header class="bg-green-900 py-5 px-4 sm:px-10 md:px-24">
       <!-- Navigation for larger screens -->
       <nav
-        class="hidden md:flex md:justify-between md:gap-5 md:text-sm lg:gap-10"
+        class="hidden md:flex md:justify-between md:gap-5 md:text-sm lg:gap-10 xl:justify-evenly"
       >
         <div class="text-xl lg:text-3xl font-medium">RICHIECODING</div>
         <div class="flex gap-20">
@@ -18,7 +18,7 @@
                 route.path === page.path ? 'border-yellow-400 border-b-4' : ''
               "
             >
-              {{ page.name }}
+            {{ $t(page.json) }}
             </div></NuxtLink
           >
         </div>
@@ -55,7 +55,7 @@
               ><div
                 class="text-xl hover:border-yellow-400 pb-1 hover:border-b-4 inline" :class="page.path === route.path ? 'border-yellow-400 border-b-4' : ''"
               >
-                <SheetClose>{{ page.name }}</SheetClose>
+                <SheetClose>{{ $t(page.json)  }}</SheetClose>
               </div></NuxtLink
             >
           </nav>
@@ -68,7 +68,7 @@
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/vue";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Skills from "./Skills.vue";
+
 import LanguageSelector from "./LanguageSelector.vue";
 
 
@@ -77,14 +77,17 @@ const route = useRoute();
 const pages = [
   {
     name: "Home",
+    json: "nav.home",
     path: "/",
   },
   {
     name: "Projects",
+    json: "nav.projects",
     path: "/projects",
   },
   {
     name: "About me",
+    json: "nav.aboutme",
     path: "/aboutme",
   },
 ];

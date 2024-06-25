@@ -1,3 +1,8 @@
 {
-  "hello": "Hello"
+  "nav": {
+    "home": "Home",
+    "aboutme": "About me",
+    "projects": "Projects"
+  },
+  "skills": "Hi, I work as a"
 }
