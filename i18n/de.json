@@ -4,5 +4,10 @@
     "aboutme": "Über mich",
     "projects": "Projekte"
   },
-  "skills": "Hi, Ich arbeite als"
+  "skills": "Hi, Ich arbeite als",
+  "projects": "Projekt",
+  "programminglanguage": "Programmiersprache",
+  "projektname": "Projektname",
+  "updated at": "Aktualisiert am",
+  "stars": "Sterne"
 }

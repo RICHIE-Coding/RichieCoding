@@ -4,5 +4,9 @@
     "aboutme": "About me",
     "projects": "Projects"
   },
-  "skills": "Hi, I work as a"
+  "skills": "Hi, I work as a",
+  "programminglanguage": "Programming language",
+  "stars": "Stars",
+  "projects": "Projects",
+  "updated at": "Updated at"
 }
