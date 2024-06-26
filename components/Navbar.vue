@@ -53,7 +53,8 @@
               :to="page.path"
               class=""
               ><div
-                class="text-xl hover:border-yellow-400 pb-1 hover:border-b-4 inline"
+                class="text-xl hover:border-yellow-400 
+                pb-1 hover:border-b-4 inline"
                 :class="
                   page.path === route.path ? 'border-yellow-400 border-b-4' : ''
                 "
@@ -80,7 +81,6 @@ const pages = [
   {
     name: 'Home',
 
-    
     json: 'nav.home',
     path: '/',
   },
