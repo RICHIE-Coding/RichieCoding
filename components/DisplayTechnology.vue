@@ -6,20 +6,17 @@
     {{ $t('skills') }}
     <span class="typed-text">{{ typeValue }}</span>
     <span class="blinking-cursor">|</span>
-    <span
-      class="cursor"
-      :class="{ typing: typeStatus }"
-    >&nbsp;</span>
+    <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue';
 
-const charIndex = ref(0)
-const typeStatus = ref(false)
-const typeValue = ref('')
-const displayTextArrayIndex = ref(0)
+const charIndex = ref(0);
+const typeStatus = ref(false);
+const typeValue = ref('');
+const displayTextArrayIndex = ref(0);
 
 const displayTextArray = ref([
   'Software Engineer',
@@ -122,50 +119,48 @@ const displayTextArray = ref([
   'Software Scalability Professional',
   'Software Reliability Specialist',
   'Software Reliability Professional',
-])
+]);
 
-const typingSpeed = ref(100) // milliseconds
-const erasingSpeed = ref(50) // milliseconds
-const newTextDelay = ref(2000) // milliseconds
+const typingSpeed = ref(100); // milliseconds
+const erasingSpeed = ref(50); // milliseconds
+const newTextDelay = ref(2000); // milliseconds
 
 const typeText = () => {
   if (
     charIndex.value < displayTextArray.value[displayTextArrayIndex.value].length
   ) {
-    if (!typeStatus.value) typeStatus.value = true
+    if (!typeStatus.value) typeStatus.value = true;
     typeValue.value += displayTextArray.value[
       displayTextArrayIndex.value
-    ].charAt(charIndex.value)
-    charIndex.value += 1
-    setTimeout(typeText, typingSpeed.value)
+    ].charAt(charIndex.value);
+    charIndex.value += 1;
+    setTimeout(typeText, typingSpeed.value);
+  } else {
+    typeStatus.value = false;
+    setTimeout(eraseText, newTextDelay.value);
   }
-  else {
-    typeStatus.value = false
-    setTimeout(eraseText, newTextDelay.value)
-  }
-}
+};
 
 const eraseText = () => {
   if (charIndex.value > 0) {
-    if (!typeStatus.value) typeStatus.value = true
+    if (!typeStatus.value) typeStatus.value = true;
     typeValue.value = displayTextArray.value[
       displayTextArrayIndex.value
-    ].substring(0, charIndex.value - 1)
-    charIndex.value -= 1
-    setTimeout(eraseText, erasingSpeed.value)
-  }
-  else {
-    typeStatus.value = false
-    displayTextArrayIndex.value += 1
+    ].substring(0, charIndex.value - 1);
+    charIndex.value -= 1;
+    setTimeout(eraseText, erasingSpeed.value);
+  } else {
+    typeStatus.value = false;
+    displayTextArrayIndex.value += 1;
     if (displayTextArrayIndex.value >= displayTextArray.value.length)
-      displayTextArrayIndex.value = 0
-    setTimeout(typeText, typingSpeed.value + 1000)
+      displayTextArrayIndex.value = 0;
+    setTimeout(typeText, typingSpeed.value + 1000);
   }
-}
+};
 
 onMounted(() => {
-  setTimeout(typeText, newTextDelay.value + 200)
-})
+  setTimeout(typeText, newTextDelay.value + 200);
+});
 </script>
 
 <style scoped>

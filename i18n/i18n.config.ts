@@ -1,5 +1,5 @@
-import deMessages from './de.json'
-import enMessages from './en.json'
+import deMessages from './de.json';
+import enMessages from './en.json';
 
 export default defineI18nConfig(() => ({
   legacy: false,
@@ -9,4 +9,4 @@ export default defineI18nConfig(() => ({
     de: deMessages,
     en: enMessages,
   },
-}))
+}));
