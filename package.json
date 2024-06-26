@@ -8,10 +8,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "lint:prettier": "prettier . --check",
+    "lint": "eslint --ext .js,.ts,.vue ./",
     "lintfix": "eslint . --fix && prettier --write --list-different .",
-    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore && git add -A .",
     "prepare": "husky install"
   },
   "dependencies": {
