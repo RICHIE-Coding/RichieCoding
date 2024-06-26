@@ -79,6 +79,8 @@ const route = useRoute();
 const pages = [
   {
     name: 'Home',
+
+    
     json: 'nav.home',
     path: '/',
   },
