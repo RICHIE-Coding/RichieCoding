@@ -7,27 +7,7 @@ import * as z from 'zod'
 import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
 import { cn } from '/lib/utils'
 import { Button } from '@/components/ui/button'
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command'
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
+
 import { toast } from '@/components/ui/toast'
 
 const languages = [
@@ -59,16 +39,17 @@ const onSubmit = handleSubmit((values) => {
 const { locale, setLocale } = useI18n()
 
 const getlanguage = (computed(() => {
-  return languages.find((language) => language.value === locale.value)?.label 
+  return languages.find(language => language.value === locale.value)?.label
 }))
-
-
 </script>
+
 <template>
-  <form class="space-y-6" @submit="onSubmit">
+  <form
+    class="space-y-6"
+    @submit="onSubmit"
+  >
     <FormField name="language">
       <FormItem class="flex flex-col">
-
         <Popover>
           <PopoverTrigger as-child>
             <FormControl>
@@ -77,15 +58,13 @@ const getlanguage = (computed(() => {
                 role="combobox"
                 :class="cn('w-[100px] justify-between bg-green-900 hover:bg-black hover:text-white')"
               >
-                {{ getlanguage}}
+                {{ getlanguage }}
                 <CaretSortIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </FormControl>
           </PopoverTrigger>
           <PopoverContent class="w-[80px] p-0">
             <Command>
-
-           
               <CommandList>
                 <CommandGroup>
                   <CommandItem
@@ -111,7 +90,5 @@ const getlanguage = (computed(() => {
         <FormMessage />
       </FormItem>
     </FormField>
-
-
   </form>
 </template>

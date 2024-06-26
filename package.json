@@ -7,10 +7,13 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@iconify/vue": "^4.1.2",
+    "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/i18n": "^8.3.1",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@radix-icons/vue": "^1.0.0",
@@ -30,6 +33,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "eslint": "^9.5.0",
     "typescript": "^5.5.2"
   }
 }

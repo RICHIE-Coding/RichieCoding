@@ -5,31 +5,35 @@
       <nav
         class="hidden md:flex md:justify-between md:gap-5 md:text-sm lg:gap-10 xl:justify-evenly"
       >
-        <div class="text-xl lg:text-3xl font-medium">RICHIECODING</div>
+        <div class="text-xl lg:text-3xl font-medium">
+          RICHIECODING
+        </div>
         <div class="flex gap-20">
           <NuxtLink
             v-for="page in pages"
             :key="page.name"
             :to="page.path"
             class=""
-            ><div
-              class="text-xl lg:text-3xl hover:border-yellow-400 pb-1 hover:border-b-4 inline font-medium"
-              :class="
-                route.path === page.path ? 'border-yellow-400 border-b-4' : ''
-              "
-            >
-            {{ $t(page.json) }}
-            </div></NuxtLink
+          ><div
+            class="text-xl lg:text-3xl hover:border-yellow-400 pb-1 hover:border-b-4 inline font-medium"
+            :class="
+              route.path === page.path ? 'border-yellow-400 border-b-4' : ''
+            "
           >
+            {{ $t(page.json) }}
+          </div></NuxtLink>
         </div>
-        <div><LanguageSelector/></div>
+        <div><LanguageSelector /></div>
       </nav>
 
       <!-- Mobile menu with centered title -->
       <Sheet>
         <div class="flex items-center justify-between w-full md:hidden">
           <SheetTrigger as-child>
-            <Button size="icon" class="bg-transparent shrink-0">
+            <Button
+              size="icon"
+              class="bg-transparent shrink-0"
+            >
               <Icon
                 icon="material-symbols:menu"
                 class="hover:text-yellow-400"
@@ -38,13 +42,21 @@
               />
             </Button>
           </SheetTrigger>
-          <div class="text-3xl font-medium">RICHIECODING </div>
-          <div><LanguageSelector class="sm:hidden"/></div>
+          <div class="text-3xl font-medium">
+            RICHIECODING
+          </div>
+          <div><LanguageSelector class="sm:hidden" /></div>
         </div>
 
-        <SheetContent side="top" class="bg-green-900">
+        <SheetContent
+          side="top"
+          class="bg-green-900"
+        >
           <nav class="grid gap-4 text-center text-lg font-medium">
-            <a href="#" class="flex items-center gap-2 text-lg font-semibold">
+            <a
+              href="#"
+              class="flex items-center gap-2 text-lg font-semibold"
+            >
               <span class="sr-only">Acme Inc</span>
             </a>
             <NuxtLink
@@ -52,46 +64,46 @@
               :key="page.name"
               :to="page.path"
               class=""
-              ><div
-                class="text-xl hover:border-yellow-400 pb-1 hover:border-b-4 inline" :class="page.path === route.path ? 'border-yellow-400 border-b-4' : ''"
-              >
-                <SheetClose>{{ $t(page.json)  }}</SheetClose>
-              </div></NuxtLink
+            ><div
+              class="text-xl hover:border-yellow-400 pb-1 hover:border-b-4 inline"
+              :class="page.path === route.path ? 'border-yellow-400 border-b-4' : ''"
             >
+              <SheetClose>{{ $t(page.json) }}</SheetClose>
+            </div></NuxtLink>
           </nav>
         </SheetContent>
       </Sheet>
     </header>
   </div>
 </template>
+
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
-import { Icon } from "@iconify/vue";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Icon } from '@iconify/vue'
+import LanguageSelector from './LanguageSelector.vue'
+import { Button } from '@/components/ui/button'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 
-import LanguageSelector from "./LanguageSelector.vue";
-
-
-const route = useRoute();
+const route = useRoute()
 
 const pages = [
   {
-    name: "Home",
-    json: "nav.home",
-    path: "/",
+    name: 'Home',
+    json: 'nav.home',
+    path: '/',
   },
   {
-    name: "Projects",
-    json: "nav.projects",
-    path: "/projects",
+    name: 'Projects',
+    json: 'nav.projects',
+    path: '/projects',
   },
   {
-    name: "About me",
-    json: "nav.aboutme",
-    path: "/aboutme",
+    name: 'About me',
+    json: 'nav.aboutme',
+    path: '/aboutme',
   },
-];
+]
 </script>
+
 <style scoped>
 
 </style>
